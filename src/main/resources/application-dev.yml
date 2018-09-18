@@ -1,0 +1,39 @@
+server:
+  # 服务器访问端口
+  port: 8080
+  # 访问的基础路径
+  context-path: /
+logging:
+  config: classpath:logback-spring.xml
+  datasource:
+    primary: 
+      url: jdbc:mysql://192.168.80.151:3306/ec-analysis
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      # 数据库连接池
+      type: org.apache.commons.dbcp2.BasicDataSource
+      initial-size: 5
+      max-active: 20
+      max-wait-millis: 10000
+      min-idle: 2
+      max-idle: 15
+      validation-query: SELECT 1
+      connection-properties: characterEncoding=utf8;autoReconnect=true;useAffectedRows=true
+    secondary: 
+      url: jdbc:mysql://192.168.80.151:3306/hive
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      # 数据库连接池
+      type: org.apache.commons.dbcp2.BasicDataSource
+      initial-size: 5
+      max-active: 20
+      max-wait-millis: 10000
+      min-idle: 2
+      max-idle: 15
+      validation-query: SELECT 1
+      connection-properties: characterEncoding=utf8;autoReconnect=true;useAffectedRows=true
+# 配置Mybatis的配置文件位置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml 
