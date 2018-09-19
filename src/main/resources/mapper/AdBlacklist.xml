@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckw.eca.dao.mybatis.IAdBlacklistDAO">
+	<resultMap id="AdBlacklistMap" type="com.ckw.eca.domain.AdBlacklist">
+		<id column="userid" property="userid" />
+	</resultMap>
+
+	<sql id="Default_Column_List">
+		userid
+	</sql>
+
+	<select id="findAll" resultMap="AdBlacklistMap">
+		SELECT
+		<include refid="Default_Column_List" />
+		FROM
+		ad_blacklist
+	</select>
+
+	<insert id="insertBatch">
+		INSERT INTO
+		ad_blacklist
+		(
+		<include refid="Default_Column_List" />
+		)
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			( #{item.userid} )
+		</foreach>
+	</insert>
+
+</mapper>
