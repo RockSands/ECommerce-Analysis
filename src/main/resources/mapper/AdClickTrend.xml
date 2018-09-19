@@ -15,16 +15,17 @@
 	</sql>
 
 	<update id="updateBatch">
-		INSERT INTO
-		ad_blacklist
-		(
+		INSERT INTO ad_blacklist(
 		<include refid="Default_Column_List" />
-		)
-		VALUES
+		) VALUES
 		<foreach collection="list" item="item" index="index"
 			separator=",">
-			( #{item.userid} )
+			(
+			#{item.adid},#{item.date},#{item.hour},#{item.minute},#{item.clickCount}
+			)
 		</foreach>
+		ON DUPLICATE KEY UPDATE
+		clickCount = values(clickCount)
 	</update>
 
 </mapper>
