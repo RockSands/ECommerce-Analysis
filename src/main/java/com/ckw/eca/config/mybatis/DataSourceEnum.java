@@ -1,4 +1,4 @@
-package com.ckw.eca.mybatis.config;
+package com.ckw.eca.config.mybatis;
 
 /**
  * 数据源的Enum

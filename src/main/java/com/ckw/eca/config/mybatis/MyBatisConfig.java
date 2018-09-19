@@ -1,4 +1,4 @@
-package com.ckw.eca.mybatis.config;
+package com.ckw.eca.config.mybatis;
 
 import java.util.HashMap;
 import java.util.Map;

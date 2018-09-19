@@ -1,4 +1,4 @@
-package com.ckw.eca.mybatis.config;
+package com.ckw.eca.config.mybatis;
 
 /**
  * 构建一个DataSourceEnum容器，并提供了向其中设置和获取DataSorceEnum的方法

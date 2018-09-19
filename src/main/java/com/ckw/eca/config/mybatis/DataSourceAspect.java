@@ -1,4 +1,4 @@
-package com.ckw.eca.mybatis.config;
+package com.ckw.eca.config.mybatis;
 
 import java.lang.reflect.Method;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class DataSourceAspect {
-	@Pointcut("execution(* com.katch.perfer.mybatis.mapper..*.*(..))")
+	@Pointcut("execution(* com.ckw.eca.dao.mybatis..*.*(..))")
 	public void dataSourcePointcut() {
 	}
 

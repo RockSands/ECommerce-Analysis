@@ -1,4 +1,4 @@
-package com.ckw.eca.mybatis.config;
+package com.ckw.eca.config.mybatis;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
