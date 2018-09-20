@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ckw.eca.dao.mybatis.IAdProvinceTop3DAO">
+	<resultMap id="DefaultResoultMap" type="com.ckw.eca.domain.AdProvinceTop3">
+		<result column="adid" property="adid" />
+		<result column="date" property="date" />
+		<result column="province" property="province" />
+		<result column="clickCount" property="clickCount" />
+	</resultMap>
+
+	<sql id="Default_Column_List">
+		adid,date,province,clickCount
+	</sql>
+
+	<update id="saveBatch">
+		<foreach collection="list" item="item" index="index">
+			DELETE
+			FROM ad_province_top3 WHERE date=#{item.date} AND
+			province=#{item.province} AND adid = #{item.adid};
+			INSERT INTO ad_province_top3 (
+			<include refid="Default_Column_List" />
+			)
+			VALUES(#{item.adid},#{item.date},#{item.province},#{item.clickCount})
+		</foreach>
+	</update>
+
+</mapper>

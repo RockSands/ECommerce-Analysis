@@ -14,6 +14,6 @@ import com.ckw.eca.domain.AdProvinceTop3;
 @Mapper
 public interface IAdProvinceTop3DAO {
 
-	void updateBatch(List<AdProvinceTop3> adProvinceTop3s);
+	void saveBatch(List<AdProvinceTop3> adProvinceTop3s);
 	
 }
